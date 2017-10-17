@@ -10,14 +10,19 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.List;
 
 public class BasicWebCrawler {
 
-    private HashSet<String> links;
+    private static HashSet<String> links;
     private static String addToUrl;
 
     BasicWebCrawler() {
         links = new HashSet<>();
+    }
+
+    HashSet<String> getLinks() {
+        return links;
     }
 
     static void setAddToUrl(String addToUrl) {
