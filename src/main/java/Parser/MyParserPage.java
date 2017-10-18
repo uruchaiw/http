@@ -20,28 +20,28 @@ public class MyParserPage {
         try {
             Document document = Jsoup.connect(url).get();
 
-            Elements title  = document.select("meta[property=og:title]");
-            Elements tage = document.select("meta[property=og:video:tag]");
+                Elements title = document.select("meta[property=og:title]");
+                Elements tage = document.select("meta[property=og:video:tag]");
 
-            Element iframe = document.select("iframe").first();
-            String iframeSrc = iframe.attr("src");
+                Element iframe = document.select("iframe").first();
+                String iframeSrc = iframe.attr("src");
 
-            if(iframeSrc != null) {
-                Document iframeContentDoc = Jsoup.connect(iframeSrc).get();
-                Elements linkOnVideo = iframeContentDoc.select("script");
+                if (iframeSrc != null) {
+                    Document iframeContentDoc = Jsoup.connect(iframeSrc).get();
+                    Elements linkOnVideo = iframeContentDoc.select("script");
 
-                Pattern p = Pattern.compile(regularExpressions);
-                Matcher m = p.matcher(linkOnVideo.html());
+                    Pattern p = Pattern.compile(regularExpressions);
+                    Matcher m = p.matcher(linkOnVideo.html());
 
-                while(m.find()) {
-                    linkOnVide.add(m.group(1));
+                    while (m.find()) {
+                        linkOnVide.add(m.group(1));
+                    }
                 }
-            }
 
             System.out.println(title + "\n" + tage + " \n" + " \n" + linkOnVide);
 
-        } catch (IOException e) {
-            e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
-    }
 }

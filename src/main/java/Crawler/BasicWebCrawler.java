@@ -10,7 +10,6 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashSet;
-import java.util.List;
 
 public class BasicWebCrawler {
 
@@ -21,7 +20,7 @@ public class BasicWebCrawler {
         links = new HashSet<>();
     }
 
-    HashSet<String> getLinks() {
+    public HashSet<String> getLinks() {
         return links;
     }
 
@@ -43,8 +42,8 @@ public class BasicWebCrawler {
                 Elements otherLinks = document.select("a[href~=(http|https)://(www.|)"+ addToUrl +"]");
                 for (Element page : otherLinks) {
                     if (links.add(URL)) {
-                        System.out.print(dateFormat.format(date) + " ");
-                        System.out.println(URL);
+                        //sSystem.out.print(dateFormat.format(date) + " ");
+                        //System.out.println(URL);
                     }
                     getPageLinks(page.attr("abs:href"));
                 }
