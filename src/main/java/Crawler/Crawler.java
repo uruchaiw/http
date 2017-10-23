@@ -10,7 +10,7 @@ import java.util.List;
 public class Crawler {
 
     public static void main(String[] arg) {
-        //String getUrl = "www.mykyong.com";
+        String getUrl = "www.mykyong.com";
         String url = "http://www.mykyong.com/";
         String refinementSearch = "mykyong.com/page/";
 
